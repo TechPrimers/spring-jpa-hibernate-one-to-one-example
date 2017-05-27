@@ -1,16 +1,14 @@
 package com.techprimers.jpa.springjpahibernateexample.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users", catalog = "test")
 public class Users {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Integer id;
     @Column(name = "name")
     private String name;
@@ -24,31 +22,35 @@ public class Users {
         return id;
     }
 
-    public void setId(Integer id) {
+    public Users setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Users setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(Integer salary) {
+    public Users setSalary(Integer salary) {
         this.salary = salary;
+        return this;
     }
 
     public String getTeamName() {
         return teamName;
     }
 
-    public void setTeamName(String teamName) {
+    public Users setTeamName(String teamName) {
         this.teamName = teamName;
+        return this;
     }
 }
